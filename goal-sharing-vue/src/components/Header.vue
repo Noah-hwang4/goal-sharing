@@ -5,7 +5,7 @@
         <b-nav-item href="#">목표 공유</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-button size="sm" variant="mdb-color">로그인</b-button>
+        <b-button size="sm" variant="mdb-color" v-on:click="goLogin()" v-text="">로그인</b-button>
       </b-navbar-nav>
     </b-navbar>
   </header>
@@ -13,6 +13,14 @@
 
 <script>
   export default {
-
+    methods: {
+      goLogin: function () {
+        if (this.$router.currentRoute.path == '/login') {
+          this.$router.back()
+        } else {
+          this.$router.push('login')
+        }
+      }
+    }
   }
 </script>
