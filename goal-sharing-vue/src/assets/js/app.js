@@ -2,19 +2,18 @@ import axios from 'axios'
 
 export default {
   methods: {
-    // 공통 게시물 목록 조회
+    // 목표 목록 조회
     getList: function (vm) {
       const app = this
       const listOptions = vm.listOptions
 
       axios.get(vm.url, { params: listOptions })
         .then(function (response) {
-          const list = response.data.list
-          vm.list = list.content
+          vm.list = response.data
 
           // 페이징 처리
-          vm.listOptions.totalPages = list.totalPages
-          app.setPagingOption(vm, list.totalPages, list.number)
+          // vm.listOptions.totalPages = list.totalPages
+          // app.setPagingOption(vm, list.totalPages, list.number)
         })
         .catch(function (error) {
           console.log(error)
@@ -52,25 +51,25 @@ export default {
         vm.paging.push(pageObject)
       }
     },
-    // 공통 게시물 정보 조회
-    getView: function (vm) {
-      const viewOptions = vm.viewOptions
+    // 목표 정보 조회
+    getGoal: function (vm) {
+      const goalOptions = vm.goalOptions
 
-      axios.get(vm.url, {params: viewOptions})
+      axios.get(vm.url, {params: goalOptions})
         .then(function (response) {
-          vm.view = response.data.data
+          vm.goal = response.data.data
         })
         .catch(function (error) {
           console.log(error)
         })
     },
-    // 공통 게시물 저장
+    // 목표 저장
     save: function (vm, successCallback) {
       if (confirm('저장하시겠습니까?')) {
-        if (vm.view.comBbmSeq) { // 수정
-          const putUrl = vm.url + '/' + vm.view.comBbmSeq
+        if (vm.goal.id) { // 수정
+          const putUrl = vm.url + '/' + vm.goal.id
 
-          axios.put(putUrl, vm.view)
+          axios.put(putUrl, vm.goal)
             .then(function (response) {
               if (response.data.success) {
                 alert('저장되었습니다.')
@@ -83,7 +82,7 @@ export default {
               console.log(error)
             })
         } else { // 등록
-          axios.post(vm.url, vm.view)
+          axios.post(vm.url, vm.goal)
             .then(function (response) {
               if (response.data.success) {
                 alert('저장되었습니다.')
@@ -98,12 +97,12 @@ export default {
         }
       }
     },
-    // 공통 게시물 삭제
+    // 목표 삭제
     delete: function (vm, successCallback) {
-      if (vm.view.comBbmSeq && confirm('삭제하시겠습니까?')) {
-        const deleteUrl = vm.url + '/' + vm.view.comBbmSeq
+      if (vm.goal.id && confirm('삭제하시겠습니까?')) {
+        const deleteUrl = vm.url + '/' + vm.goal.id
 
-        axios.delete(deleteUrl, vm.view)
+        axios.delete(deleteUrl, vm.goal)
           .then(function (response) {
             if (response.data.success) {
               alert('삭제되었습니다.')
