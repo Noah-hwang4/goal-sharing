@@ -1,0 +1,12 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Main from '../components/main/Main.vue'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    { path: '/', component: Main }, // 메인
+  ],
+  mode: 'history'
+})

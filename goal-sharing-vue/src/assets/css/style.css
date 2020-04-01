@@ -1,0 +1,241 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+html,
+body {
+  color: #333333;
+  font-size: 16px;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  background-color: #222;
+  width: 100%;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+.head-wrapper {
+  background-color: transparent;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+  z-index: 10;
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px) {
+  .head-wrapper {
+    height: 4rem;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 949px), only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
+  .head-wrapper {
+    height: 45px;
+  }
+}
+
+.head {
+  position: relative;
+  margin: 0 3.5rem;
+  height: 100%;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
+  .head {
+    margin: 0 5%;
+  }
+}
+
+.logo {
+  color: #DDD;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 950px) {
+  .logo {
+    height: 36px;
+    width: 134px;
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .logo {
+    height: 24px;
+    width: 30%;
+    font-size: 1.5em;
+  }
+}
+
+.web {
+  margin: 0 auto;
+}
+
+.white-web-card {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+}
+
+.web-card {
+  position: relative;
+  border-bottom: 8px solid #555;
+  padding: 50px 5%;
+  margin-bottom: 0;
+  background: transparent;
+}
+
+@media only screen and (min-width: 550px) and (max-width: 949px), only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px) {
+  .web-card {
+    padding: 70px 45px;
+  }
+}
+
+.web-card.main-web-card {
+  height: 513px;
+}
+
+@media only screen and (min-width: 550px) and (max-width: 949px), only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px) {
+  .web-card.main-web-card {
+    height: 735.594px;
+  }
+}
+
+.web-card-background {
+  z-index: 0;
+  position: absolute;
+  top: -70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px) {
+  .web-card-background {
+    top: -100px;
+  }
+}
+
+.img-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-transform: scale(1.25) translateY(-10%);
+  -moz-transform: scale(1.25) translateY(-10%);
+  -ms-transform: scale(1.25) translateY(-10%);
+  -o-transform: scale(1.25) translateY(-10%);
+  transform: none;
+  opacity: 0.5;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
+  .main-img {
+    height: auto;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+
+.footer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.web-card.web-card-no-border {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.footer-wrapper {
+  min-width: 190px;
+  width: 100%;
+  margin-top: 0;
+  padding-bottom: 20px;
+  font-size: 1em;
+  color: #a6a6a6;
+  position: relative;
+}
+
+.links {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+}
+
+.links.loginButton {
+  background-color: #555;
+  line-height: normal;
+  padding: 7px 17px;
+  font-weight: 400;
+  font-size: 1rem;
+  float: right;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
+  .links.loginButton {
+    font-size: 0.9rem;
+    margin-top: 0.35rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
