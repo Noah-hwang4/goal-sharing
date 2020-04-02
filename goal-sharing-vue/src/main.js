@@ -13,7 +13,7 @@ Vue.create = ((options) => {
   mixins: [app], // app.js methods
   routerParams: null,
   data: {
-    'url': 'https://gl-sharing.com/'
+    'url': '/'
   },
   methods: {
     // 메뉴 이동
