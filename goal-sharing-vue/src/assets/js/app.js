@@ -84,7 +84,7 @@ export default {
         } else { // 등록
           axios.post(vm.url, vm.goal)
             .then(function (response) {
-              if (response.data.success) {
+              if (response.status === 200) {
                 alert('저장되었습니다.')
 
                 // callback function

@@ -26,7 +26,7 @@
 export default {
   data () {
     return {
-      url: 'http://localhost:8088/goal',
+      url: this.$root.$data.url + 'goal',
       goal: {
         id: null,
         title: null,
@@ -37,9 +37,10 @@ export default {
   },
   methods: {
     newSave: function () {
+      const vm = this
+
       this.$root.$options.methods.save(this, function (data) {
-        console.log(data)
-        this.$root.$options.methods.menuRouter('/')
+        vm.$root.$options.methods.menuRouter('/')
       })
     }
   }

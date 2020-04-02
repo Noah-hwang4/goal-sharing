@@ -12,6 +12,9 @@ Vue.create = ((options) => {
   template: '<App/>',
   mixins: [app], // app.js methods
   routerParams: null,
+  data: {
+    'url': 'https://gl-sharing.com/'
+  },
   methods: {
     // 메뉴 이동
     menuRouter: function (path, params) {

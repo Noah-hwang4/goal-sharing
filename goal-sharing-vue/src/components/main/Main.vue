@@ -27,7 +27,7 @@
 export default {
   data () {
     return {
-      url: 'http://localhost:8088/goal',
+      url: this.$root.$data.url + 'goal',
       list: null,
       goal: {
         id: null,
