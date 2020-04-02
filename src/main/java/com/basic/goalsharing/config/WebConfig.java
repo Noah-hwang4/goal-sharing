@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8089")
+                .allowedOrigins("http://localhost:8089", "https://gl-sharing.com/")
                 .allowedMethods("GET", "POST");
     }
 
