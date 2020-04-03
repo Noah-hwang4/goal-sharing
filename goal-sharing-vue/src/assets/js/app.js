@@ -9,7 +9,7 @@ export default {
 
       axios.get(vm.url, { params: listOptions })
         .then(function (response) {
-          vm.list = response.data
+          vm.list = app.returnHtml(response.data)
 
           // 페이징 처리
           // vm.listOptions.totalPages = list.totalPages
@@ -115,6 +115,19 @@ export default {
             console.log(error)
           })
       }
+    },
+    returnHtml: function (list) {
+      let returnList = list
+
+      if (returnList) {
+        const listLength = returnList.length
+
+        for (let i=0; i < listLength; i++) {
+          returnList[i].content = returnList[i].content.split('\n').join('<br>')
+        }
+      }
+
+      return returnList
     }
   }
 }

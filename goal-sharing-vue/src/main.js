@@ -13,6 +13,7 @@ Vue.create = ((options) => {
   mixins: [app], // app.js methods
   routerParams: null,
   data: {
+    // 'url': 'http://localhost:8088/'
     'url': '/'
   },
   methods: {

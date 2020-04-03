@@ -28,13 +28,7 @@ export default {
   data () {
     return {
       url: this.$root.$data.url + 'goal',
-      list: null,
-      goal: {
-        id: null,
-        title: null,
-        content: null,
-        author: null
-      }
+      list: null
     }
   },
   created () {
