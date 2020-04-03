@@ -14,13 +14,13 @@ body {
   direction: ltr;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
 }
 
 #app {
   background-color: #FFF;
   width: 100%;
   overflow-x: hidden;
-  min-width: 320px;
 }
 
 article,
@@ -76,6 +76,14 @@ img {
   position: relative;
   margin: 0 3.5rem;
   height: 100%;
+}
+
+.head_logo {
+  width: 80%;
+}
+
+.head_button {
+  width: 20%;
 }
 
 .logo {
@@ -169,7 +177,13 @@ img {
   padding: 7px 17px;
   font-weight: 400;
   font-size: 1rem;
-  float: right;
+  position: fixed;
+  right: 3.5rem;
+}
+
+.links.loginButton.newSave {
+  position: absolute;
+  right: auto;
 }
 
 .main-article {
@@ -236,7 +250,7 @@ img {
   float: left;
 }
 
-.main-article input, textarea {
+.main-article input[type=text], textarea {
   border: 1px solid;
   border-radius: 3px;
   padding: 10px;
@@ -334,6 +348,12 @@ img {
     font-size: 0.9rem;
     margin-top: 0.35rem;
     padding: 0.25rem 0.5rem;
+    right: 5%;
+  }
+
+  .links.loginButton.newSave {
+    position: absolute;
+    right: auto;
   }
 
   .main-article {

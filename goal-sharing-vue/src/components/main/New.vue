@@ -15,7 +15,7 @@
           </div>
 
           <div class="links-div">
-            <a class="links loginButton" v-on:click="newSave">save</a>
+            <a class="links loginButton newSave" v-on:click="newSave">save</a>
           </div>
         </div>
       </article>

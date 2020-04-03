@@ -11,11 +11,16 @@ export default {
         .then(function (response) {
           vm.list = app.returnHtml(response.data)
 
+          if (!vm.list || vm.list.length === 0) {
+            vm.noList = true
+          }
+
           // 페이징 처리
           // vm.listOptions.totalPages = list.totalPages
           // app.setPagingOption(vm, list.totalPages, list.number)
         })
         .catch(function (error) {
+          vm.noList = true
           console.log(error)
         })
     },

@@ -14,7 +14,7 @@
       </div>
     </article>
 
-    <article class="main-article" v-if="!list || list.length === 0">
+    <article class="main-article" v-if="noList">
       <header class="main-article-no">
         <span>공유된 목표가 없습니다.<br>new 버튼을 클릭해 목표를 공유하세요.</span><br><br>
         <span style="font-size: 12px;">There are no shared goals.<br>Click the new button to share your goals.</span>
@@ -28,7 +28,8 @@ export default {
   data () {
     return {
       url: this.$root.$data.url + 'goal',
-      list: null
+      list: null,
+      noList: false
     }
   },
   created () {

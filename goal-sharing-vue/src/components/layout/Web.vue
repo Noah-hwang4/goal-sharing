@@ -1,6 +1,9 @@
 <template>
   <div class="web">
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
+
     <c_footer/>
   </div>
 </template>

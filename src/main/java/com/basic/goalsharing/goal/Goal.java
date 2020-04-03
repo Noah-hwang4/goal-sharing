@@ -24,6 +24,8 @@ public class Goal {
 
     private String author;
 
+    private int isAttainment;
+
     @Builder
     public Goal(String title, String content, String author) {
         this.title = title;
