@@ -3,6 +3,7 @@
     <div class="head">
       <span class="logo">목표 공유</span>
 
+      <a class="links loginButton gameButton" v-on:click="blackAndWhite" v-if="showGb">{{ buttonText2 }}</a>
       <a class="links loginButton" v-on:click="newSave">{{ buttonText }}</a>
     </div>
   </div>
@@ -13,7 +14,9 @@
 
     data () {
       return {
-        buttonText: 'new'
+        buttonText: 'new',
+        buttonText2: 'game',
+        showGb: true
       }
     },
     methods: {
@@ -23,9 +26,24 @@
         if (currentName === 'main') {
           this.$root.$options.methods.menuRouter('/new')
           this.buttonText = 'main'
+          this.showGb = false
         } else {
           this.$root.$options.methods.menuRouter('/')
           this.buttonText = 'new'
+          this.showGb = true
+        }
+      },
+      blackAndWhite: function () {
+        const currentName = this.$router.currentRoute.name
+
+        if (currentName === 'main') {
+          this.$root.$options.methods.menuRouter('/bnw')
+          this.buttonText = 'main'
+          this.showGb = false
+        } else {
+          this.$root.$options.methods.menuRouter('/')
+          this.buttonText = 'game'
+          this.showGb = true
         }
       }
     },
@@ -40,3 +58,15 @@
     }
   }
 </script>
+
+<style scoped>
+  .gameButton {
+    right: 9rem;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .gameButton {
+      right: 4.5rem;
+    }
+  }
+</style>
