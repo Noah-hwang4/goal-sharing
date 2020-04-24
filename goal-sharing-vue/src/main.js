@@ -1,29 +1,59 @@
 import Vue from 'vue'
-import App from './App'
-import router from './router'
+import VueCookie from 'vue-cookie'
+import App from './components/App'
 import app from './assets/js/app.js'
+import vuetify from './plugins/vuetify'
+import store from './store'
+import router from './router'
+import axios from 'axios'
+
+Vue.use(VueCookie)
 
 Vue.create = ((options) => {
   return new Vue(options)
 })({
   el: '#app',
-  router,
   components: { App },
   template: '<App/>',
-  mixins: [app], // app.js methods
-  routerParams: null,
-  data: {
-    // 'url': 'http://localhost:8088/'
-    'url': '/'
-  },
-  methods: {
-    // 메뉴 이동
-    menuRouter: function (path, params) {
-      // 다른 메뉴 간에만 이동
-      if (router.currentRoute.path !== path) {
-        this.routerParams = params
-        router.push(path)
-      }
+  mixins: [ app ],
+  vuetify,
+  store,
+  router,
+  created () {
+    const indexPath = store.getters['router/getIndexPath']
+
+    if (router.currentRoute.path !== indexPath) {
+      store.dispatch('router/setRouterPath', {
+        path: indexPath
+      })
     }
+
+    axios.interceptors.request.use((config) => {
+      store.dispatch('router/setIsLoading', {
+        isLoading: true
+      })
+
+      return config
+    }, (error) => {
+      store.dispatch('router/setIsLoading', {
+        isLoading: false
+      })
+
+      return Promise.reject(error)
+    })
+
+    axios.interceptors.response.use((response) => {
+      store.dispatch('router/setIsLoading', {
+        isLoading: false
+      })
+
+      return response
+    }, (error) => {
+      store.dispatch('router/setIsLoading', {
+        isLoading: false
+      })
+
+      return Promise.reject(error)
+    })
   }
 })
