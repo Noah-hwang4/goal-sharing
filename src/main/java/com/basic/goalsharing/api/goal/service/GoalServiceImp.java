@@ -32,6 +32,11 @@ public class GoalServiceImp implements GoalService {
     }
 
     @Override
+    public int saveAttainment(GoalRequest request) {
+        return repository.updateAttainment(request);
+    }
+
+    @Override
     public int deleteGoal(GoalRequest request) {
         return 0;
     }

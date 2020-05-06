@@ -15,6 +15,7 @@
             <v-checkbox
               v-model="item.isAttainment === 1"
               color="dark"
+              v-on:change="attainment(item)"
             ></v-checkbox>
           </v-list-item-action>
         </v-list-item>
@@ -34,13 +35,26 @@ export default {
       items: 'getGoalList'
     })
   },
+  data: () => ({
+    goal: {
+      id: null,
+      isAttainment: null
+    }
+  }),
   created () {
     this.setGoalList()
   },
   methods: {
     ...mapActions('goal', {
-      setGoalList: 'setGoalList'
-    })
+      setGoalList: 'setGoalList',
+      setAttainment: 'setAttainment'
+    }),
+    attainment: function (goal) {
+      this.goal.id = goal.id
+      this.goal.isAttainment = goal.isAttainment === 0 ? 1 : 0
+
+      this.setAttainment(this.goal)
+    }
   }
 }
 </script>

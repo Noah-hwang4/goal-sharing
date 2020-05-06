@@ -3,7 +3,8 @@ import app from '../assets/js/app.js'
 
 export default {
   getGoalList,
-  saveGoal
+  saveGoal,
+  saveAttainment
 }
 
 function getGoalList (prms) {
@@ -12,4 +13,8 @@ function getGoalList (prms) {
 
 function saveGoal (prms) {
   return axios.post(app.origins + '/goal', prms)
+}
+
+function saveAttainment (prms) {
+  return axios.put(app.origins + '/goal' + '/' + prms.id, prms)
 }

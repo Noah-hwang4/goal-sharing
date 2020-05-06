@@ -17,4 +17,6 @@ public interface GoalRepository {
 
     int deleteGoal(GoalRequest request);
 
+    int updateAttainment(GoalRequest request);
+
 }

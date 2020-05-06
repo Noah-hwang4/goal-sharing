@@ -12,12 +12,12 @@ const mutations = {
 }
 
 const actions = {
-  async setGoalList ({ commit, state }, prms) {
+  async setGoalList ({ commit }, prms) {
     const response = await goalApi.getGoalList(prms)
 
     commit('setGoalList', response.data)
   },
-  async setGoal ({ commit, state, dispatch }, prms) {
+  async setGoal ({ commit }, prms) {
     const response = await goalApi.saveGoal(prms)
 
     if (response.status === 200) {
@@ -26,6 +26,15 @@ const actions = {
       router.push('/')
     } else {
       alert('error')
+    }
+  },
+  async setAttainment ({ commit }, prms) {
+    const response = await goalApi.saveAttainment(prms)
+
+    if (response.status === 200) {
+      const response2 = await goalApi.getGoalList()
+
+      commit('setGoalList', response2.data)
     }
   }
 }

@@ -51,4 +51,9 @@ public class GoalRepositoryImp extends QuerydslRepositorySupport implements Goal
         return 0;
     }
 
+    @Override
+    public int updateAttainment(GoalRequest request) {
+        return jpaRepository.updateAttainment(request.getIsAttainment(), request.getId());
+    }
+
 }

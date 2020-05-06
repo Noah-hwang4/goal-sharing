@@ -12,6 +12,8 @@ public interface GoalService {
 
     int saveGoal(GoalRequest request);
 
+    int saveAttainment(GoalRequest request);
+
     int deleteGoal(GoalRequest request);
 
 }
