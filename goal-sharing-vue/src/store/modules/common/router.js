@@ -1,8 +1,6 @@
 import router from '../../../router'
 
 const state = {
-  // origins: '',
-  origins: 'http://localhost:8088',
   indexPath: '/',
   routerPrms: {},
   isLoading: false,
@@ -34,9 +32,6 @@ const actions = {
 }
 
 const getters = {
-  getOrigins: state => {
-    return state.origins
-  },
   getIndexPath: state => {
     return state.indexPath
   },

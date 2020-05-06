@@ -8,13 +8,13 @@
       <v-list dense>
         <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title v-on:click="move('goal')">goal</v-list-item-title>
+            <v-list-item-title v-on:click="move('goal')">목표 공유</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
         <v-list-item link>
           <v-list-item-content>
-            <v-list-item-title v-on:click="move('game')">game</v-list-item-title>
+            <v-list-item-title v-on:click="move('blackAndWhite')">흑과 백</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -26,6 +26,10 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>목표 공유</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn small color="error" v-on:click="move('new')">새 목표</v-btn>
     </v-app-bar>
 
     <v-content>
@@ -43,7 +47,7 @@ import { mapActions } from 'vuex'
 
 export default {
   data: () => ({
-    drawer: null,
+    drawer: null
   }),
   created () {
     this.$vuetify.theme.dark = true
@@ -53,9 +57,15 @@ export default {
       setRouterPath: 'setRouterPath'
     }),
     move: function (name) {
-      if (name === 'game') {
-        this.setRouterPath({ path: '/' })
+      let path = '/'
+
+      if (name === 'blackAndWhite') {
+        path = '/game/blackAndWhite'
+      } else if (name === 'new') {
+        path = '/goal/new'
       }
+
+      this.setRouterPath({ path: path })
     }
   }
 }

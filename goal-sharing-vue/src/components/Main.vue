@@ -1,43 +1,26 @@
 <template>
   <v-card>
-    <v-list two-line>
-      <v-list-item-group
-        v-model="selected"
-        multiple
-      >
-        <template v-for="(item, index) in items">
-          <v-list-item :key="item.title">
-            <template v-slot:default="{ active }">
-              <v-list-item-content>
-                <v-list-item-title v-text="item.title"></v-list-item-title>
-                <v-list-item-subtitle class="text--primary" v-text="item.registrant"></v-list-item-subtitle>
-                <v-list-item-content v-html="item.contents"></v-list-item-content>
-              </v-list-item-content>
+    <v-list three-line>
+      <template v-for="(item) in items">
+        <v-list-item
+          :key="item.id"
+        >
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title"></v-list-item-title>
+            <v-list-item-subtitle v-text="item.registrant" class="text--primary"></v-list-item-subtitle>
+            <v-list-item-action-text v-html="$root.$options.methods.returnHtml(item.contents)"></v-list-item-action-text>
+          </v-list-item-content>
 
-              <v-list-item-action>
-                <v-icon
-                  v-if="!active"
-                  color="grey lighten-1"
-                >
-                  x
-                </v-icon>
+          <v-list-item-action>
+            <v-checkbox
+              v-model="item.isAttainment === 1"
+              color="dark"
+            ></v-checkbox>
+          </v-list-item-action>
+        </v-list-item>
 
-                <v-icon
-                  v-else
-                  color="yellow"
-                >
-                  o
-                </v-icon>
-              </v-list-item-action>
-            </template>
-          </v-list-item>
-
-          <v-divider
-            v-if="index + 1 < items.length"
-            :key="index"
-          ></v-divider>
-        </template>
-      </v-list-item-group>
+        <v-divider></v-divider>
+      </template>
     </v-list>
   </v-card>
 </template>
@@ -51,9 +34,6 @@ export default {
       items: 'getGoalList'
     })
   },
-  data: () => ({
-    selected: []
-  }),
   created () {
     this.setGoalList()
   },

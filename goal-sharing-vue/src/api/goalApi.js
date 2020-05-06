@@ -1,16 +1,15 @@
 import axios from 'axios'
+import app from '../assets/js/app.js'
 
 export default {
-  getGoalList
+  getGoalList,
+  saveGoal
 }
 
 function getGoalList (prms) {
-  axios.get('/goal', { params: prms })
-    .then(response => {
-      return response.data
-    })
+  return axios.get(app.origins + '/goal', { params: prms })
 }
 
 function saveGoal (prms) {
-  return axios.post('/goal', { params: prms })
+  return axios.post(app.origins + '/goal', prms)
 }
